@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spam Detection System</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #a12dc4;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Spam Detection App</h1>
+
+        <form action="/predict" method="POST">
+
+            <textarea
+                name="message"
+                placeholder="Enter message here..."
+                required>
+            </textarea>
+
+            <br>
+
+            <button type="submit">
+                Predict
+            </button>
+
+        </form>
+
+        {% if prediction_text %}
+
+            <h2>{{ prediction_text }}</h2>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
