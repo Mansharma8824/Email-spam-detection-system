@@ -12,7 +12,7 @@ app = Flask(__name__)
 model = joblib.load(MODEL_DIR / 'model.pkl')
 
 # load the vectorizer
-vectorizer = joblib.load(MODEL_DIR / 'vectorizer.pkl')
+# vectorizer = joblib.load(MODEL_DIR / 'vectorizer.pkl')
 
 @app.route("/")
 def home():
@@ -25,9 +25,9 @@ def spam_predict():
     # preprocessing input message
     message = text_preprocessing(message)
     
-    msg_vec = vectorizer.transform([message]).toarray()
+    # msg_vec = vectorizer.transform([message]).toarray()
     
-    pred = model.predict(msg_vec)[0]
+    pred = model.predict([message])[0]
     
     # result = 'spam' if pred == 1 else 'ham'
     result = ''
