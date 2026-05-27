@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request
-from .utils import text_preprocessing
+from utils import text_preprocessing
 import joblib
 from pathlib import Path
 
