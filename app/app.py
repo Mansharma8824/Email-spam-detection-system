@@ -11,8 +11,6 @@ app = Flask(__name__)
 # load the model
 model = joblib.load(MODEL_DIR / 'model.pkl')
 
-# load the vectorizer
-# vectorizer = joblib.load(MODEL_DIR / 'vectorizer.pkl')
 
 @app.route("/")
 def home():
@@ -29,14 +27,20 @@ def spam_predict():
     
     pred = model.predict([message])[0]
     
-    # result = 'spam' if pred == 1 else 'ham'
+    # check how much spam prabelity
+    probability = model.predict_proba([message])
+    ham_prob = probability[0][0]
+    spam_prob = probability[0][1]
+    spam_percentage = round(spam_prob *100,2)
+    
+    
     result = ''
     if pred == 1:
-        result = 'spam'
+        result = f'🚨 SPAM DETECTED'
     else:
-        result = 'ham'
+        result = f'✅ NOT SPAM'
     
-    return render_template('index.html',prediction_text = result)
+    return render_template('index.html',prediction_text = result,confidence = spam_percentage)
 
 if __name__ == '__main__':
     app.run(debug=True)
