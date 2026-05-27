@@ -43,6 +43,6 @@ def spam_predict():
     return render_template('index.html',prediction_text = result,confidence = spam_percentage)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
     
     
