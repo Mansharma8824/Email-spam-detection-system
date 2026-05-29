@@ -11,7 +11,7 @@ A machine learning web application that detects whether an email is **spam or no
 
 ## 🚀 Live Demo
 > 🔗 Demo Link - https://email-spam-detection-system-1.onrender.com
-> I am using free tair of Render because of that it can take few minutes for loading on browser
+- I am using free tair of Render because of that it can take few minutes for loading on browser
 ---
 
 ## 📌 Project Overview
