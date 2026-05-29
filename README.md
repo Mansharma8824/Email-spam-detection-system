@@ -185,6 +185,6 @@ pip install -r requirements.txt
 
 **Manish Kumar**
 - GitHub: [@Mansharma8824](https://github.com/Mansharma8824)
-- LinkedIn: ([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/manish-kumar-2518b6242/))
+- LinkedIn: ([Manish Kumar](https://www.linkedin.com/in/manish-kumar-2518b6242/))
 
 ---
