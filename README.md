@@ -10,7 +10,7 @@ A machine learning web application that detects whether an email is **spam or no
 ---
 
 ## 🚀 Live Demo
-> 🔗 Coming Soon — will be deployed on Render
+> 🔗 Demo Link - https://email-spam-detection-system-1.onrender.com
 
 ---
 
