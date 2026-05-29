@@ -5,13 +5,13 @@
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.8.0-orange.svg)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
 
-A machine learning web application that detects whether an email is **spam or not spam** using NLP techniques and multiple ML models. Built with Python, Scikit-learn, and Flask.
+A end to end machine learning web application that detects whether an email is **spam or not spam** using NLP techniques and multiple ML models. Built with Python, Scikit-learn, and Flask.
 
 ---
 
 ## 🚀 Live Demo
 > 🔗 Demo Link - https://email-spam-detection-system-1.onrender.com
-- I am using free tair of Render because of that it can take few minutes for loading on browser
+- I am using free tair of Render because of that it can take few seconds for loading on browser
 ---
 
 ## 📌 Project Overview
@@ -28,11 +28,11 @@ This project builds an end-to-end ML pipeline that:
 
 | Model | CV F1 Score | Test Accuracy |
 |-------|-------------|---------------|
-| Logistic Regression |  |  |
-| Naive Bayes |  |  |
-| SVC (LinearSVC) | |  |
-| Random Forest | | |
-| **✅ Best Model** | ** ** | ** ** |
+| Logistic Regression | 0.902655 | 0.978703 |
+| Naive Bayes | 0.91453 | 0.980639 |
+| SVC (LinearSVC) | 0.908297 | 0.979671 |
+| Random Forest | 0.891892 | 0.976767 |
+| **✅ Naive Bayes** | 0.91453 | 0.980639 |
 
 ---
 
@@ -40,7 +40,7 @@ This project builds an end-to-end ML pipeline that:
 
 | Layer | Tools |
 |-------|-------|
-| Language | Python 3.8+ |
+| Language | Python 3.12+ |
 | ML Library | Scikit-learn |
 | NLP | TF-IDF Vectorizer |
 | Web Framework | Flask |
@@ -54,25 +54,26 @@ This project builds an end-to-end ML pipeline that:
 ```
 Email-Spam-Detection-System/
 │
-├── app.py                  ← Flask web application
-├── train.py                ← ML pipeline training script
-├── requirements.txt        ← All dependencies
-├── README.md
-│
 ├── data/
-│   └── raw/                ← Raw dataset (CSV)
-│
-├── models/
-│   └── best_model.pkl      ← Saved best model (auto-generated)
-│
-├── templates/
-│   └── index.html          ← Frontend UI
-│
-├── static/
-│   └── style.css           ← Styling
+│   └── raw            
+│         ├──mail.csv ← Raw dataset (CSV)
+│   └── processed           
+│         ├── cleaned_data.csv ← Cleaned dataset (CSV)
+├── app/
+│   └──models/
+|          ├── model.pkl      ← Saved best model (auto-generated)
+│   └──templates/
+|          ├── index.html     ← Frontend UI
+│   └── route.py     ← Flask web application
+│   └── train.py   ← ML pipeline training script
+│   └── utils.py   ← text preprocessing script (Common functions)
 │
 └── notebooks/
-    └── EDA_experiments.ipynb  ← Research & experiments
+|    ├── mail_data_cleaning.ipynb  ← Data collection, Data cleaning, EDA, Data Preprocessing
+|    ├── model_training.ipynb  ← Feature Engineering(Vectorization), Model Training
+├── requirements.txt        ← All dependencies
+├── README.md
+├── .gitignore
 ```
 
 ---
@@ -88,7 +89,7 @@ ML Model                ← Logistic Regression / NB / SVC / Random Forest
       ↓
 GridSearchCV            ← finds best hyperparameters (cv=5)
       ↓
-Best Model Saved        ← as best_model.pkl
+Best Model Saved        ← as model.pkl
       ↓
 Flask App               ← serves predictions via web UI
 ```
@@ -107,7 +108,7 @@ Flask App               ← serves predictions via web UI
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/Email-Spam-Detection-System.git
+git clone https://github.com/Mansharma8824/Email-Spam-Detection-System.git
 cd Email-Spam-Detection-System
 ```
 
@@ -130,13 +131,13 @@ pip install -r requirements.txt
 
 ### 4. Train the model (run once)
 ```bash
-python train.py
+python model_train.py
 ```
-This will train all 4 models, compare them, and save the best one as `models/best_model.pkl`
+This will train all 4 models, compare them, and save the best one as `models/model.pkl`
 
 ### 5. Start the Flask app
 ```bash
-python app.py
+python route.py
 ```
 
 ### 6. Open in browser
@@ -148,7 +149,13 @@ http://localhost:5000
 
 ## 🖥️ App Screenshot
 
-> _Add screenshot here after building the UI_
+> <img width="1443" height="880" alt="Screenshot 2026-05-29 232619" src="https://github.com/user-attachments/assets/209e5087-1839-449b-b813-4d00c1781687" />
+<img width="1458" height="858" alt="Screenshot 2026-05-29 232600" src="https://github.com/user-attachments/assets/d428ff05-a454-4a4b-9956-5e3df93325c9" />
+<img width="1458" height="856" alt="Screenshot 2026-05-29 232512" src="https://github.com/user-attachments/assets/010c527b-a449-4d09-8b5a-5f3ff14f6b2c" />
+<img width="1419" height="767" alt="Screenshot 2026-05-29 232456" src="https://github.com/user-attachments/assets/51e69e42-2f85-497b-8d77-ee23ff3b7b64" />
+<img width="1544" height="814" alt="Screenshot 2026-05-29 232216" src="https://github.com/user-attachments/assets/c40c7c04-2972-46ef-9386-f50e25c559e0" />
+<img width="1589" height="805" alt="Screenshot 2026-05-29 232055" src="https://github.com/user-attachments/assets/6a10ec47-cc44-47d4-abab-1f920ef8f13c" />
+
 
 ---
 
@@ -161,6 +168,7 @@ pandas
 numpy
 matplotlib
 seaborn
+nltk
 ```
 
 Install all with:
@@ -175,7 +183,6 @@ pip install -r requirements.txt
 - **Pipeline architecture** — TF-IDF + Model in single pipeline (prevents data leakage)
 - **4 models compared** — picks the best one automatically
 - **Hyperparameter tuning** — GridSearchCV with 5-fold cross validation
-- **Imbalanced data handled** — `class_weight='balanced'` used
 - **F1 Score based selection** — better metric than accuracy for spam data
 - **One-click prediction** — type any email text and get instant result
 
