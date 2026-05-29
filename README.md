@@ -11,7 +11,7 @@ A machine learning web application that detects whether an email is **spam or no
 
 ## 🚀 Live Demo
 > 🔗 Demo Link - https://email-spam-detection-system-1.onrender.com
-
+> I am using free tair of Render because of that it can take few minutes for loading on browser
 ---
 
 ## 📌 Project Overview
@@ -28,11 +28,11 @@ This project builds an end-to-end ML pipeline that:
 
 | Model | CV F1 Score | Test Accuracy |
 |-------|-------------|---------------|
-| Logistic Regression | _fill after training_ | _fill after training_ |
-| Naive Bayes | _fill after training_ | _fill after training_ |
-| SVC (LinearSVC) | _fill after training_ | _fill after training_ |
-| Random Forest | _fill after training_ | _fill after training_ |
-| **✅ Best Model** | **_fill after training_** | **_fill after training_** |
+| Logistic Regression |  |  |
+| Naive Bayes |  |  |
+| SVC (LinearSVC) | |  |
+| Random Forest | | |
+| **✅ Best Model** | ** ** | ** ** |
 
 ---
 
@@ -184,11 +184,7 @@ pip install -r requirements.txt
 ## 👤 Author
 
 **Manish Kumar**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [your-linkedin](https://linkedin.com/in/yourprofile)
+- GitHub: [@Mansharma8824](https://github.com/Mansharma8824)
+- LinkedIn: ([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/manish-kumar-2518b6242/))
 
 ---
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
